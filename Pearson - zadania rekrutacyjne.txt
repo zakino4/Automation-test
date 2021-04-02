@@ -1,0 +1,84 @@
+Zadanie 1:
+
+Pytanie 1:
+
+* Tak, oczywiście zamierzam zadać dodatkowe pytania:
+
+- czy logując się do konta można logować się jedynie przy pomocy adresu mail, czy również nick użytkownika umożliwi zalogowanie (czy można stosować je naprzemiennie)
+- czy są jakieś wytyczne dotyczące hasła? Kwestia znaków specjalnych, cyfr, małych oraz dużych liczb
+- czy jeżeli podam złe hasło/login to pojawi się jakiś odpowiedni komunikat informujący o powodzie błędy? Złe hasło/zły adres mail/nie ma takiego użytkownika.
+- czy w przypadku podania złego hasła istnieje możliwość zmiany hasła poprzez kliknięcie odpowiedniego przycisku (i rozpoczęcie całej procedury)
+
+Pytanie 2:
+
+A)
+
+Feature: Funkcjonalność - logowanie do aplikacji z poprawnymi danymi
+
+Scenerio: Jako niezalogowany użytkownik, chciałbym zalogować się do konta na stronie pearson.com
+
+Given Jestem na stronie do logowania do konta użytkownika
+When Wpisuję „<nazwa_konta>” w polu „Nazwa Użytkownika”
+And Wpisuję „<hasło_konta>” w polu „Hasło”
+And Klikam przycisk „Zaloguj”
+And Pojawił się komunikat „<Wiadomość>”
+Then Strona startowa/strona startowa konta użytkownika jest widoczna
+And Przycisk Wyloguj jest widoczny
+
+Examples:
+
+| <nazwa_konta>       | <hasło_konta> |    <Wiadomość>  |
+| testowyuser         | Has!o123?     | Logowanie udane |
+| testowy@pearson.com | Has!o123?     | Logowanie udane |
+
+B)
+
+Feature: Funkcjonalność - logowanie do aplikacji z niepoprawnymi danymi
+
+Scenerio: Jako niezalogowany użytkownik, chciałbym zalogować się do konta na stronie pearson.com
+
+Given Jestem na stronie do logowania do konta użytkownika
+When Wpisuję „<nazwa_konta>” w polu „Nazwa Użytkownika”
+And Wpisuję „<hasło_konta>” w polu „Hasło”
+And Klikam przycisk „Zaloguj”
+And Pojawił się komunikat „<Wiadomość>”
+Then Strona do logowania do konta użytkownika jest widoczna
+And Przycisk Zaloguj jest widoczny
+
+Examples:
+
+| <nazwa_konta>       | <hasło_konta>| 	<Wiadomość>     |
+| testowyuser 	     |              | Logowanie nieudane |
+| testowy@pearson.com |              | Logowanie nieudane |
+|                     |   Has!o123?  | Logowanie nieudane |
+| 	   	     |   Has!o123?  | Logowanie nieudane |
+| testowyuser         |   HASŁO123   | Logowanie nieudane |
+| testowy@pearson.com |   HASŁO123   | Logowanie nieudane |
+| testowyuser12       |   HASŁO123   | Logowanie nieudane |
+| test12@pearson.com  |   HASŁO123   | Logowanie nieudane |
+|                     |              | Logowanie nieudane |
+
+
+Zadanie 2:
+
+Feature: Funkcjonalność - wyszukiwanie danych na stronie Pearson.com
+Scenario: Jako użytkownik strony chciałbym znaleźć interesujący mnie temat i go przeczytać
+
+Given Jestem na stronie głównej serwisu
+When Wpisuję <słowo klucz> w polu wyszukiwania
+And  <Aktywuję> opcję wyszukiwania 
+Then Strona wyświetla mi podstrony zawierające szukany <słowo klucz>
+And Mogę wejść w wybrany przez siebie artykuł
+
+|<słowo klucz>|     <Aktywuję>     |          Rezultat        |
+|   Chemistry |   Klikam Enter     |  Strona wyświetla dane   |
+|   Chemistry | Naciskam ikonę lupy|  Strona wyświetla dane   |
+|   Physics   |   Klikam Enter     |  Strona wyświetla dane   |
+|   Physics   | Naciskam ikonę lupy|  Strona wyświetla dane   |
+|             |   Klikam enter     | Nie aktywuje się szukanie|
+|             | Naciskam ikonę lupy| Nie aktywuje się szukanie|
+
+
+
+
+
