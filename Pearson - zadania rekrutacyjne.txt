@@ -79,6 +79,14 @@ And Mogę wejść w wybrany przez siebie artykuł
 |             | Naciskam ikonę lupy| Nie aktywuje się szukanie|
 
 
+Część 2 zadania:
+
+
+W związku z tym, że nie miałem styczności z testami automatycznymi. Postarałem się zrobić to zadanie na tyle ile umiałem przy pomocy Google, StockOverFlow i różnych stron internetowych. Niestety części z nich nie udało mi się przejść (więc trochę obszedłem wytyczne, żeby przejść do ostatecznego elementu).
+
+Test jest przygotowany na podstawie ChromeDriver 89.0.4389.23 w systemie macOS.
+
+
 
 
 
