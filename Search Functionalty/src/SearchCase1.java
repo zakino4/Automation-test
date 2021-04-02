@@ -22,14 +22,14 @@ public class SearchCase1 {
 		driver.findElement(By.name("q")).sendKeys("course" + Keys.ENTER);
 		
 		Thread.sleep(1000);
+		
+		// Niestety w poniższych przypadkach nie udało mi się przejśc przy pomocy różnych metod. W przypadku innych plików udawało się je otwrzorzyć.
 		driver.navigate().to("https://www.pearson.com/search-results.html?_charset_=UTF-8&#stq=course&stp=2");
-		Thread.sleep(1000);
+		Thread.sleep(1000);	
+		//	driver.findElement(By.linkText("Mastering-Physics-v3-summary.pdf")).click();
 		driver.navigate().to("https://www.pearson.com/content/dam/one-dot-com/one-dot-com/global/Files/efficacy-and-research/reports/audited/Mastering-Physics-v3-summary.pdf");
-
-		//driver.findElement(By.linkText("Online_Information_Literacy.pdf"));
-
-		//driver.navigate().to("https://www.pearson.com/search-results.html?_charset_=UTF-8&#stq=course&stp=2");
-
+	
+	
 		
 
 		
